@@ -8,7 +8,7 @@
 	$(form).submit((evt)=>{
 
 		vessel.disabled = true;
-		country.disabled = true;
+		c.disabled = true;
 		species.disabled = true;
 		company.disabled = true;
 
@@ -16,9 +16,19 @@
 			"search" : vessel.value
 		}, (returnData) => {
 			if(returnData == "blacklisted") {
-				alert("BlackListed");
+				alert("Blacklisted");
 				return;
 			}
+
+			$.get("risk_analysis.php", 
+				{"country" : country.value},
+				(returnData) => {
+					let theClass = "";
+					if(returnData > 75) theClass = "good";
+					else if(returnData > 40 ) theClass = "medium";
+					else theClass = "bad";
+				}
+			});
 
 			if(returnData == "okay") {	
 				vessel.disabled = false;
@@ -29,34 +39,33 @@
 		});
 	});
 
-	// $(vessel).keyup((evt)=>{
-	// 	console.log(evt.target.value);
+
+	// AUTOCOMPLETE CANCELLED DUE TO... yeah
+
+	// $(country).autocomplete({
+	//     serviceUrl: 'risk_analysis.php',
+	//     lookup: { "query": country.value, "type" : "country" },
+	//     onSelect: function (suggestion) {
+	//         country.value = suggestion.name;
+	//     }
 	// });
 
-	$(country).autocomplete({
-	    serviceUrl: 'risk_analysis.php',
-	    lookup: { "query": country.value, "type" : "country" },
-	    onSelect: function (suggestion) {
-	        country.value = suggestion.name;
-	    }
-	});
+
+	// $(species).autocomplete({
+	//     serviceUrl: 'risk_analysis.php',
+	//     lookup: { "query": species.value, "type" : "species" },
+	//     onSelect: function (suggestion) {
+	//         species.value = suggestion.name;
+	//     }
+	// });
 
 
-	$(species).autocomplete({
-	    serviceUrl: 'risk_analysis.php',
-	    lookup: { "query": species.value, "type" : "species" },
-	    onSelect: function (suggestion) {
-	        species.value = suggestion.name;
-	    }
-	});
-
-
-	$(company).autocomplete({
-	    serviceUrl: 'risk_analysis.php',
-	    lookup: { "query": company.value, "type" : "company" },
-	    onSelect: function (suggestion) {
-	        company.value = suggestion.name;
-	    }
-	});
+	// $(company).autocomplete({
+	//     serviceUrl: 'risk_analysis.php',
+	//     lookup: { "query": company.value, "type" : "company" },
+	//     onSelect: function (suggestion) {
+	//         company.value = suggestion.name;
+	//     }
+	// });
 
 })();
