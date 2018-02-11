@@ -35,7 +35,7 @@
 
 	$(country).autocomplete({
 	    serviceUrl: 'risk_analysis.php',
-	    lookup: { "country": country.value }
+	    lookup: { "country": country.value },
 	    onSelect: function (suggestion) {
 	        country.value = suggestion.name;
 	    }
@@ -44,7 +44,7 @@
 
 	$(species).autocomplete({
 	    serviceUrl: 'risk_analysis.php',
-	    lookup: { "species": species.value }
+	    lookup: { "species": species.value },
 	    onSelect: function (suggestion) {
 	        species.value = suggestion.name;
 	    }
@@ -53,7 +53,7 @@
 
 	$(company).autocomplete({
 	    serviceUrl: 'risk_analysis.php',
-	    lookup: { "company": company.value }
+	    lookup: { "company": company.value },
 	    onSelect: function (suggestion) {
 	        company.value = suggestion.name;
 	    }
