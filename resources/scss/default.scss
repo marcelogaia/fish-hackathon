@@ -26,18 +26,19 @@ button {
 	display: block;
 	width: 100%;
 	padding: 10px;
+	text-align: center;
 
-	.good {
+	&.good {
 		background: #3C3;
 		color: darken(#3C3,20%);
 	}
 
-	.medium {
+	&.medium {
 		background: #CC3;
 		color: darken(#CC3,20%);
 	}
 
-	.bad {
+	&.bad {
 		backgroundm: #C33;
 		color: darken(#C33, 20%);
 	}
