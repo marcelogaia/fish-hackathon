@@ -6,6 +6,6 @@ error_reporting(E_ALL);
 
 $country = $_GET['country'];
 
-if($country == '') $result = $mysqli->query("CALL jorge('{$country}')");
+if($country != '') $result = $mysqli->query("CALL jorge('{$country}')");
 
 echo json_encode(($result->fetch_assoc()));
