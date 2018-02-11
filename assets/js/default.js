@@ -8,7 +8,7 @@
 	$(form).submit((evt)=>{
 
 		vessel.disabled = true;
-		c.disabled = true;
+		country.disabled = true;
 		species.disabled = true;
 		company.disabled = true;
 
@@ -27,6 +27,8 @@
 					if(returnData > 75) theClass = "good";
 					else if(returnData > 40 ) theClass = "medium";
 					else theClass = "bad";
+
+					$("#response").html(theClass + " country").attr("class","").addClass(theClass);
 				}
 			);
 
