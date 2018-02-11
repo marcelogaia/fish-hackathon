@@ -1,0 +1,23 @@
+@require "../../vendor/twbs/bootstrap/css/bootstrap.min.css";
+
+label {
+	display: inline-block;
+	width: calc(35% - 30px);
+	text-align: right;
+	padding: 10px;
+	font-size: 1.1em;
+}
+
+input {
+	display: inline-block;
+	width: calc(45% - 30px);
+	padding: 5px 10px;
+}
+
+button {
+	margin: 15px auto;
+	display: block;
+	width: 150px;
+	height: 30px;
+	text-transform: uppercase;
+}
