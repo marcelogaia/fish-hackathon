@@ -23,9 +23,11 @@
 			$.get("risk_analysis.php", 
 				{"country" : country.value},
 				(returnData) => {
+					let index = JSON.parse(returnData);
+
 					let theClass = "";
-					if(returnData > 75) theClass = "good";
-					else if(returnData > 40 ) theClass = "medium";
+					if(index.cpi2016 > 75) theClass = "good";
+					else if(index.cpi2016 > 40 ) theClass = "medium";
 					else theClass = "bad";
 
 					$("#response").html(theClass + " country").attr("class","").addClass(theClass);
