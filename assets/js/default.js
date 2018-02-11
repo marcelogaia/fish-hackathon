@@ -28,7 +28,7 @@
 					else if(returnData > 40 ) theClass = "medium";
 					else theClass = "bad";
 				}
-			});
+			);
 
 			if(returnData == "okay") {	
 				vessel.disabled = false;
