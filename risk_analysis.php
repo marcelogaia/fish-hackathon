@@ -5,6 +5,11 @@ $species = $_GET['species'];
 $company = $_GET['company'];
 
 
-$result = $mysqli->query("CALL data_countries('{$country}');");
+if(isset($_GET['country']))
+	$result = $mysqli->query("CALL data_countries('{$country}');");
+if(isset($_GET['species']))
+	$result = $mysqli->query("CALL data_species('{$species}');");
+if(isset($_GET['company']))
+	$result = $mysqli->query("CALL data_company('{$company}');");
 
-var_dump($result->fetch_assoc());
+echo json_encode(($result->fetch_assoc()));
