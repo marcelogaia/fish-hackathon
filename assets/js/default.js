@@ -1,9 +1,11 @@
 (function(){
-	$("form").submit((evt)=>{
-		let vessel = evt.target.elements.vessel;
-		let country = evt.target.elements.country;
-		let species = evt.target.elements.species;
-		let company = evt.target.elements.company;
+	let form = document.getElementById("risk");
+	let vessel = form.elements.vessel;
+	let country = form.elements.country;
+	let species = form.elements.species;
+	let company = form.elements.company;
+
+	$(form).submit((evt)=>{
 
 		vessel.disabled = true;
 		country.disabled = true;
@@ -18,8 +20,6 @@
 				return;
 			}
 
-			
-
 			if(returnData == "okay") {	
 				vessel.disabled = false;
 				country.disabled = false;
@@ -28,4 +28,64 @@
 			}
 		});
 	});
+
+	// $(vessel).keyup((evt)=>{
+	// 	console.log(evt.target.value);
+	// });
+
+	$(country).autocomplete({
+	    serviceUrl: 'risk_analysis.php',,
+	    lookup: { "country": country.value }
+	    onSelect: function (suggestion) {
+	        country.value = suggestion.name;
+	    }
+	});
+
+
+	$(species).autocomplete({
+	    serviceUrl: 'risk_analysis.php',,
+	    lookup: { "species": species.value }
+	    onSelect: function (suggestion) {
+	        species.value = suggestion.name;
+	    }
+	});
+
+
+	$(company).autocomplete({
+	    serviceUrl: 'risk_analysis.php',,
+	    lookup: { "company": company.value }
+	    onSelect: function (suggestion) {
+	        company.value = suggestion.name;
+	    }
+	});
+	
+	// $(country).keyup((evt)=>{
+	// 	$.get(
+	// 		"risk_analysis.php", 
+	// 		{"country": evt.target.value},
+	// 		(returnData) => {
+	// 			console.log(returnData);
+	// 		}
+	// 	);
+	// });
+
+	// $(species).keyup((evt)=>{
+	// 	$.get(
+	// 		"risk_analysis.php", 
+	// 		{"species": evt.target.value},
+	// 		(returnData) => {
+	// 			console.log(returnData);
+	// 		}
+	// 	);
+	// });
+
+	// $(company).keyup((evt)=>{
+	// 	$.get(
+	// 		"risk_analysis.php", 
+	// 		{"company": evt.target.value},
+	// 		(returnData) => {
+	// 			console.log(returnData);
+	// 		}
+	// 	);
+	// });
 })();

@@ -5,6 +5,7 @@
 	<title>Fishackathon</title>
 	<link rel="stylesheet" href="assets/css/default.css">
 	<script src="vendor/components/jquery/jquery.min.js" defer></script>
+	<script src="assets/js/jquery.autocomplete.min.js" defer></script>
 	<script src="assets/js/default.js" defer></script>
 </head>
 <body>
