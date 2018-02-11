@@ -34,7 +34,7 @@
 	// });
 
 	$(country).autocomplete({
-	    serviceUrl: 'risk_analysis.php',,
+	    serviceUrl: 'risk_analysis.php',
 	    lookup: { "country": country.value }
 	    onSelect: function (suggestion) {
 	        country.value = suggestion.name;
@@ -43,7 +43,7 @@
 
 
 	$(species).autocomplete({
-	    serviceUrl: 'risk_analysis.php',,
+	    serviceUrl: 'risk_analysis.php',
 	    lookup: { "species": species.value }
 	    onSelect: function (suggestion) {
 	        species.value = suggestion.name;
@@ -52,40 +52,11 @@
 
 
 	$(company).autocomplete({
-	    serviceUrl: 'risk_analysis.php',,
+	    serviceUrl: 'risk_analysis.php',
 	    lookup: { "company": company.value }
 	    onSelect: function (suggestion) {
 	        company.value = suggestion.name;
 	    }
 	});
-	
-	// $(country).keyup((evt)=>{
-	// 	$.get(
-	// 		"risk_analysis.php", 
-	// 		{"country": evt.target.value},
-	// 		(returnData) => {
-	// 			console.log(returnData);
-	// 		}
-	// 	);
-	// });
 
-	// $(species).keyup((evt)=>{
-	// 	$.get(
-	// 		"risk_analysis.php", 
-	// 		{"species": evt.target.value},
-	// 		(returnData) => {
-	// 			console.log(returnData);
-	// 		}
-	// 	);
-	// });
-
-	// $(company).keyup((evt)=>{
-	// 	$.get(
-	// 		"risk_analysis.php", 
-	// 		{"company": evt.target.value},
-	// 		(returnData) => {
-	// 			console.log(returnData);
-	// 		}
-	// 	);
-	// });
 })();
