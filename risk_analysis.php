@@ -5,6 +5,6 @@ $species = $_GET['species'];
 $company = $_GET['company'];
 
 
-$result = $mysqli->query("CALL data_countries({$country});");
+$result = $mysqli->query("CALL data_countries('{$country}');");
 
 var_dump($result->fetch_assoc());
